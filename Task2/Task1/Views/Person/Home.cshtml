@@ -1,0 +1,30 @@
+﻿@model List<Task1.Models.Person>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/mylayout.cshtml";
+}
+
+
+
+<h2>Home</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Dob</th>
+    </tr>
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td>@person.Id</td>
+            <td>@person.Name</td>
+            <td>@person.Dob</td>
+        </tr>
+    }
+</table>
+
+
+
+
+
+
