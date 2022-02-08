@@ -13,10 +13,10 @@ namespace Task4.Models.Database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sp22BEntities3 : DbContext
+    public partial class sp22BEntities4 : DbContext
     {
-        public sp22BEntities3()
-            : base("name=sp22BEntities3")
+        public sp22BEntities4()
+            : base("name=sp22BEntities4")
         {
         }
     
@@ -26,6 +26,7 @@ namespace Task4.Models.Database
         }
     
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }

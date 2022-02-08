@@ -15,24 +15,27 @@
         <th>Id No</th>
         <th>CGPA</th>
         <th>Date</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @item.Name
-        </td>
-        <td>
-            @item.Id_No
-        </td>
-        <td>
-            @item.Cgpa
-        </td>
-        <td>
-            @item.Dob
-        </td>
-        
-    </tr>
+<tr>
+    <td>
+        @item.Name
+    </td>
+    <td>
+        @item.Id_No
+    </td>
+    <td>
+        @item.Cgpa
+    </td>
+    <td>
+        @item.Dob
+    </td>
+    <td><a class="btn btn-info" href="/Student/Edit/@item.Id">Edit</a></td>
+    <td><a class="btn btn-danger" href="/Student/Delete/@item.Id">Delete</a></td>
+</tr>
 }
 
 </table>

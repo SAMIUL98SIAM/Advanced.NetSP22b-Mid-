@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="sp22BModelStoreContainer" CdmEntityContainer="sp22BEntities3">
+  <EntityContainerMapping StorageEntityContainer="sp22BModelStoreContainer" CdmEntityContainer="sp22BEntities4">
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="sp22BModel.Book">
         <MappingFragment StoreEntitySet="Books">
@@ -11,9 +11,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="sp22BModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="sp22BModel.Student">
-        <MappingFragment StoreEntitySet="Students">
+        <MappingFragment StoreEntitySet="Student">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id_No" ColumnName="Id_No" />

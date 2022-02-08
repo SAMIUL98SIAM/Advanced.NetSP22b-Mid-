@@ -12,19 +12,19 @@ namespace Task4.Controllers
         // GET: Book
         public ActionResult Index()
         {
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             return View(db.Books.ToList());
         }
 
         public ActionResult Show()
         {
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             return View(db.Books.ToList());
         }
         
         public ActionResult HighPrice()
         {
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             var data = (from b in db.Books
                         where b.Price > 100
                         select b).ToList();
@@ -43,7 +43,7 @@ namespace Task4.Controllers
         {
             if(ModelState.IsValid)
             {
-                sp22BEntities3 db = new sp22BEntities3();
+                sp22BEntities4 db = new sp22BEntities4();
                 db.Books.Add(b);
                 db.SaveChanges();
                 return RedirectToAction("Show");
@@ -56,16 +56,15 @@ namespace Task4.Controllers
         public ActionResult Edit(int id)
         {
 
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             var book = (from b in db.Books where b.Id == id select b).FirstOrDefault();   
             return View(book);
         }
-
         [HttpPost]
         public ActionResult Edit(Book sub_book)
         {
 
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             var book = (from b in db.Books where b.Id == sub_book.Id select b).FirstOrDefault();
             db.Entry(book).CurrentValues.SetValues(sub_book);
             db.SaveChanges();
@@ -78,7 +77,7 @@ namespace Task4.Controllers
         public ActionResult Delete(int id)
         {
 
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             var book = (from b in db.Books where b.Id == id select b).FirstOrDefault(); ;
             return View(book);
         }
@@ -87,7 +86,7 @@ namespace Task4.Controllers
         public ActionResult Delete(Book sub_book)
         {
 
-            sp22BEntities3 db = new sp22BEntities3();
+            sp22BEntities4 db = new sp22BEntities4();
             var book = (from b in db.Books where b.Id == sub_book.Id select b).FirstOrDefault(); ;
             //db.Entry(book).Books.Remove(sub_book);
             db.Books.Remove(book);

@@ -1,9 +1,9 @@
 ﻿@model Task4.Models.Database.Student
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Delete";
 }
 
-<h2>Edit</h2>
+<h2>Delete</h2>
 <div>
     <div class="row">
         <div class="col-md-2">
@@ -13,17 +13,14 @@
             </div>
         </div>
         <div class="col-md-10">
-            <form action="/Student/Edit" method="post">
+            <form action="/Student/Delete" method="post">
                 <input type="text" name="Name" value="@Model.Name" class="form-control" placeholder="name" />
                 <input type="hidden" name="Id" value="@Model.Id" />
                 <input type="text" name="Id_No" value="@Model.Id_No" class="form-control" placeholder="Id No" />
                 <input type="text" name="Cgpa" value="@Model.Cgpa" class="form-control" placeholder="CGPA" />
                 <input type="text" name="Dob" value="@Model.Dob" class="form-control" placeholder="CGPA" />
-                <input type="submit" value="Update" />
+                <input type="submit" value="Destroy" />
             </form>
         </div>
     </div>
 </div>
-
-
-
