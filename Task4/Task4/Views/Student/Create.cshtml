@@ -1,0 +1,26 @@
+﻿@model Task4.Models.Database.Student
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Student</h2>
+
+<div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="navbar-header">
+                <a class="btn btn-success" href="/Student/Index">Student List</a>
+
+            </div>
+        </div>
+        <div class="col-md-10">
+            <form action="/Student/Create" method="post">
+                <input type="text" name="Name" class="form-control" placeholder="name" />
+                <input type="text" name="Id_No" class="form-control" placeholder="Id No" />
+                <input type="text" name="Cgpa" class="form-control" placeholder="CGPA" />
+                <input type="datetime-local" name="Dob" class="form-control" placeholder="DOB" />
+                <input type="submit" value="Add" />
+            </form>
+        </div>
+    </div>
+</div>

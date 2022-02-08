@@ -1,0 +1,38 @@
+﻿@model List<Task4.Models.Database.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Id No</th>
+        <th>CGPA</th>
+        <th>Date</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Id_No
+        </td>
+        <td>
+            @item.Cgpa
+        </td>
+        <td>
+            @item.Dob
+        </td>
+        
+    </tr>
+}
+
+</table>

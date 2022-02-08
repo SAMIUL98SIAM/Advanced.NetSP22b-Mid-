@@ -1,0 +1,25 @@
+﻿@model Task4.Models.Database.Book
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="navbar-header">
+                <a class="btn btn-success" href="/Book/Show">Book List</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            Are You Suure want to delete <b> {{ @Model.Name }} </b>
+        </div>
+        <div class="col-md-4">
+            <form action="/Book/Delete" method="post">
+
+                <input type="submit" value="Destroy" />
+            </form>
+        </div>
+    </div>
+</div>

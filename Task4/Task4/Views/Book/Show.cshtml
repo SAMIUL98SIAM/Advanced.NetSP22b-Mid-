@@ -1,0 +1,33 @@
+﻿@model List<Task4.Models.Database.Book>
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th>Edit</th>
+    </tr>
+    @foreach (var b in Model)
+    {
+    <tr>
+        <td>@b.Id</td>
+        <td>@b.Name</td>
+        <td>@b.Auth</td>
+        <td>@b.Price</td>
+        <td><a class="btn btn-info" href="/Book/Edit/@b.Id">Edit</a></td>
+        <td><a class="btn btn-danger" href="/Book/Delete/@b.Id">Delete</a></td>
+    </tr>
+    }
+  
+</table>

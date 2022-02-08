@@ -1,0 +1,30 @@
+﻿@model Task4.Models.Database.Book
+
+    @{
+        ViewBag.Title = "Edit";
+    }
+
+    <h2>Edit Book</h2>
+
+    <div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <a class="btn btn-success" href="/Book/Create">Create</a>
+                    <a class="btn btn-success" href="/Book/Show">Book List</a>
+                    <a class="btn btn-success" href="/Book/HighPrice">Higher Price</a>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <form action="/Book/Edit" method="post">
+                    <input type="text" name="Name" value="@Model.Name" class="form-control" placeholder="name" />
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <input type="text" name="Auth" value="@Model.Auth" class="form-control" placeholder="author" />
+                    <input type="text" name="Price" value="@Model.Price" class="form-control" placeholder="Price" />
+                    <input type="submit" value="Update" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+

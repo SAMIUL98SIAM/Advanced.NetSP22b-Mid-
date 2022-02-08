@@ -1,0 +1,20 @@
+﻿@model Task3.Models.Student
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+}
+
+<h2>Create Student</h2>
+
+<!-- ForCollection na thakle method="get" hobe -->
+<form action="/Student/Create" method="post">
+    <input type="text" name="Name" class="form-control" placeholder="Name" />
+    <lebel>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })</lebel>
+    <input type="text" name="Id" class="form-control" placeholder="Id" />
+    <lebel>@Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })</lebel>
+    <input type="datetime-local" name="Dob" class="form-control" placeholder="Dob" />
+    <lebel>@Html.ValidationMessageFor(model => model.Dob, "", new { @class = "text-danger" })</lebel>
+    <input type="email" name="Email" class="form-control" placeholder="Email" />
+    <lebel>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</lebel>
+    <input type="submit" class="form-control btn btn-sm btn-success" value="Add" />
+</form>
