@@ -46,7 +46,7 @@ namespace Task4.Controllers
                 sp22BEntities3 db = new sp22BEntities3();
                 db.Books.Add(b);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Show");
             }
             return View();
         }
@@ -69,7 +69,7 @@ namespace Task4.Controllers
             var book = (from b in db.Books where b.Id == sub_book.Id select b).FirstOrDefault();
             db.Entry(book).CurrentValues.SetValues(sub_book);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Show");
         }
 
 
@@ -79,7 +79,7 @@ namespace Task4.Controllers
         {
 
             sp22BEntities3 db = new sp22BEntities3();
-            var book = (from b in db.Books where b.Id == id select b).FirstOrDefault();
+            var book = (from b in db.Books where b.Id == id select b).FirstOrDefault(); ;
             return View(book);
         }
 
@@ -88,10 +88,11 @@ namespace Task4.Controllers
         {
 
             sp22BEntities3 db = new sp22BEntities3();
-            var book = (from b in db.Books where b.Id == sub_book.Id select b).FirstOrDefault();
+            var book = (from b in db.Books where b.Id == sub_book.Id select b).FirstOrDefault(); ;
             //db.Entry(book).Books.Remove(sub_book);
+            db.Books.Remove(book);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Show");
         }
 
     }

@@ -1,4 +1,4 @@
-﻿@model Task4.Models.Database.Book
+﻿
 @{
     ViewBag.Title = "Delete";
 }
@@ -13,11 +13,14 @@
             </div>
         </div>
         <div class="col-md-6">
-            Are You Suure want to delete <b> {{ @Model.Name }} </b>
+            Are You Suure want to delete
         </div>
         <div class="col-md-4">
             <form action="/Book/Delete" method="post">
-
+                <input type="text" name="Name" value="@Model.Name" class="form-control" placeholder="name" />
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="text" name="Auth" value="@Model.Auth" class="form-control" placeholder="author" />
+                <input type="text" name="Price" value="@Model.Price" class="form-control" placeholder="Price" />
                 <input type="submit" value="Destroy" />
             </form>
         </div>
