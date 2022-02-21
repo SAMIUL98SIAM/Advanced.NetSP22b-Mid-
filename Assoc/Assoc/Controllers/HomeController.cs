@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Assoc.Models.Database;
+using System.Web.Security;
 
 namespace Assoc.Controllers
 {
@@ -47,9 +48,9 @@ namespace Assoc.Controllers
                             select u).FirstOrDefault();
                 if (data != null)
                 {
-                    Session["User"] = data.Username;
-                    //FormsAuthentication.SetAuthCookie(data.Username, false);
-                    // FormsAuthentication.SignOut(); for logout
+                    //Session["User"] = data.Username;
+                    FormsAuthentication.SetAuthCookie(data.Username, false);
+                    //FormsAuthentication.SignOut(); for logout
                     return RedirectToAction("Dashboard");
                 }
 
@@ -61,9 +62,13 @@ namespace Assoc.Controllers
         [Authorize]
         public ActionResult Dashboard()
         {
-            if (Session["User"] == null) {
+            /*
+            if (Session["User"] == null) 
+            {
                 return RedirectToAction("Index");
             }
+            */
+
             UMSEntities2 db = new UMSEntities2();
             var config = new MapperConfiguration(
                 cfg => {
