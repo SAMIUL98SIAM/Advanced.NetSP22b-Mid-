@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using AutoMapper;
 using Assoc.Models.Database;
 using System.Web.Security;
+using Assoc.Auth;
+using System.Web.Script.Serialization;
 
 namespace Assoc.Controllers
 {
@@ -50,7 +52,11 @@ namespace Assoc.Controllers
                 {
                     //Session["User"] = data.Username;
                     FormsAuthentication.SetAuthCookie(data.Username, false);
-                    //FormsAuthentication.SignOut(); for logout
+
+                    //FormsAuthentication.SetAuthCookie(new JavaScriptSerializer().Serialize(data), false);
+                    //Session["UserType"] = data.Role;
+                    //FormsAuthentication.SignOut(); 
+                    //for logout
                     return RedirectToAction("Dashboard");
                 }
 
@@ -82,6 +88,24 @@ namespace Assoc.Controllers
             return View(data);
         }
 
+
+
+        [AdminAccess]
+        public ActionResult AllUsers()
+        {
+            UMSEntities2 db = new UMSEntities2();
+            var config = new MapperConfiguration(
+                cfg =>
+                {
+                    cfg.CreateMap<User, UserModel>();
+
+                }
+                );
+            var userDb = db.Users.ToList();
+            Mapper mapper = new Mapper(config);
+            var data = mapper.Map<List<UserModel>>(userDb);
+            return View(data);
+        }
 
 
 
