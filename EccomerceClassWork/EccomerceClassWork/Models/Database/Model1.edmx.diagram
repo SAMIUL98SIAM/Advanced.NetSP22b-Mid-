@@ -16,6 +16,7 @@
         <AssociationConnector Association="EcommerceModel.FK_Orders_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="EcommerceModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="EcommerceModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EcommerceModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

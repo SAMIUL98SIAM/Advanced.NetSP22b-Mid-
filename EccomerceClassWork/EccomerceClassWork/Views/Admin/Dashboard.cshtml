@@ -24,15 +24,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CustomerId)
+            @Html.DisplayFor(modelItem => item.Customer.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @if (item.Status.Trim().Equals("Ordered"))
+            {
+                <a href="/Admin/Process/@item.Id" class="btn btn-success">Accept</a>
+            }
+            @if (item.Status.Trim().Equals("Processing"))
+            {
+                <a href="" class="btn btn-primary">Delivered</a>
+            }
+            @if (!item.Status.Trim().Equals("Delivered"))
+            {
+                <a href="/Admin/Cancel/@item.Id" class="btn btn-danger">Cancel</a>
+            }
         </td>
     </tr>
 }

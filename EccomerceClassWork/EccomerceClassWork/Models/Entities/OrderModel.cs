@@ -11,6 +11,6 @@ namespace EccomerceClassWork.Models.Entities
         public int CustomerId { get; set; }
         public string Status { get; set; }
 
-        public CustomerModel Customer { get; set; }
+        public CustomerModel Customer { get; set; } 
     }
 }
